@@ -1,8 +1,9 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import models.config.StudentConfiguration;
-import models.webAPI.Student;
 import org.junit.jupiter.api.*;
 import services.EndpointProvider;
 import services.JsonReader;
@@ -15,8 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class TestTest {
-    String baseURI = "https://thetestingworldapi.com";
+public class CrudTest extends BaseAPITest{
 
     private static List<StudentConfiguration> getNewStudents() throws IOException {
         return new JsonReader().getStudentsFromConfig();
@@ -32,10 +32,8 @@ public class TestTest {
         List<StudentConfiguration> newStudents = getNewStudents();
 
         Response responsePost = given()
-                .baseUri(baseURI)
-                .basePath(EndpointProvider.POST_STUDENT_DETAILS_ENDPOINT)
-                .contentType(ContentType.JSON)
-                .body(student)
+                .contentType(ContentType.JSON) // todo: do req spec
+                .body()
 
                 .when()
                 .post()
