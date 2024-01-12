@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.List;
 @Getter
 public class Configuration {
-    private List<StudentConfiguration> students;
+    private StudentConfiguration newStudent;
     public Configuration(){
 
     }
