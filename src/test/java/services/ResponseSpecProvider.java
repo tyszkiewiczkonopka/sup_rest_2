@@ -20,4 +20,5 @@ public class ResponseSpecProvider {
                 .logDetail(LogDetail.BODY)
                 .statusCode(statusCode);
     }
+
 }

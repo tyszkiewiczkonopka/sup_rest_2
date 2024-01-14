@@ -19,7 +19,7 @@ import static services.EndpointProvider.*;
 public class CrudTest {
 
     @Test
-    public void should_create_new_student() throws IOException {
+    public void should_create_update_and_delete_student() throws IOException {
 
         // POST
 

@@ -11,38 +11,31 @@ public class RequestSpecProvider {
     private static final String URI = "https://thetestingworldapi.com";
     private static final String BASE_PATH = "/api/studentsDetails";
 
-
-    public static RequestSpecification getRequestSpecToCreateNewStudent(Student studentData) {
+    private static RequestSpecification buildBaseRequestSpec() {
         return new RequestSpecBuilder()
                 .setBaseUri(URI)
                 .setBasePath(BASE_PATH)
                 .setContentType(ContentType.JSON)
-                .setBody(studentData)
                 .build();
+    }
+
+    public static RequestSpecification getRequestSpecToCreateNewStudent(Student studentData) {
+        return given()
+                .spec(buildBaseRequestSpec())
+                .body(studentData);
     }
 
     public static RequestSpecification getRequestSpecForStudentId(Integer id) {
-        return new RequestSpecBuilder()
-                .setBaseUri(URI)
-                .setBasePath(BASE_PATH)
-                .setContentType(ContentType.JSON)
-                .addPathParam("id", id)
-                .build();
+        return given()
+                .spec(buildBaseRequestSpec())
+                .pathParam("id", id);
     }
 
     public static RequestSpecification getRequestSpecToUpdateStudentData(Integer id, Student studentData) {
-        return new RequestSpecBuilder()
-                .setBaseUri(URI)
-                .setBasePath(BASE_PATH)
-                .setContentType(ContentType.JSON)
-                .addPathParam("id", id)
-                .setBody(studentData)
-                .build();
+        return given()
+                .spec(buildBaseRequestSpec())
+                .pathParam("id", id)
+                .body(studentData);
     }
-
-
-
-
 }
-
 
