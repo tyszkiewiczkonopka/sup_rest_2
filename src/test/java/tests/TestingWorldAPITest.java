@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static services.api.RestAssuredHelper.*;
 
 @Slf4j
-public class WebApiE2ETest {
+public class TestingWorldAPITest {
 
     @Test
     public void should_create_update_and_delete_student() throws IOException {
