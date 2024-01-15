@@ -1,4 +1,4 @@
-package services;
+package services.specification;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -13,6 +13,7 @@ public class ResponseSpecProvider {
                 .logDetail(LogDetail.BODY)
                 .statusCode(statusCode);
     }
+
     public static ResponseSpecification getResponseSpecWithBodyContainingString(int statusCode, String bodyString) {
         return new ResponseSpecBuilder()
                 .expectBody(containsString(bodyString))

@@ -2,32 +2,28 @@ package models.webAPI;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.*;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_NULL)
 @Getter
 @Builder
 public class Student {
 
-    @JsonInclude(Include.NON_NULL)
     private Integer id;
 
-    @JsonInclude(Include.NON_NULL)
     @JsonProperty("first_name")
     private String firstName;
 
-    @JsonInclude(Include.NON_NULL)
     @JsonProperty("middle_name")
     private String middleName;
 
-    @JsonInclude(Include.NON_NULL)
     @JsonProperty("last_name")
     private String lastName;
 
-    @JsonInclude(Include.NON_NULL)
     @JsonProperty("date_of_birth")
     private String dateOfBirth;
 

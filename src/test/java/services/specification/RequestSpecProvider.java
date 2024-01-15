@@ -1,4 +1,4 @@
-package services;
+package services.specification;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
